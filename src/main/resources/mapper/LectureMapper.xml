@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dreamcode.eLearning.store.mapper.LectureMapper">
+	<select id="select" parameterType ="int" resultType="Lecture">
+		SELECT id
+			  ,category
+			  ,lectureName
+			  ,description
+			  ,lectureVideoUrl
+			  ,instructor
+			  ,iconImg
+			  ,qrcodeImg
+			  ,previewImg
+			  ,publishFile
+			  ,resourceFile
+		  FROM lecture
+		 WHERE id = #{id}
+	</select>
+	
+	<select id="selectAll" resultType="Lecture">
+		SELECT id
+			  ,category
+			  ,lectureName
+			  ,description
+			  ,lectureVideoUrl
+			  ,instructor
+			  ,iconImg
+			  ,qrcodeImg
+			  ,previewImg
+			  ,publishFile
+			  ,resourceFile
+		  FROM lecture
+	</select>
+	
+	<select id="selectByCategory" parameterType ="String" resultType="Lecture">
+		SELECT id
+			  ,category
+			  ,lectureName
+			  ,description
+			  ,lectureVideoUrl
+			  ,instructor
+			  ,iconImg
+			  ,qrcodeImg
+			  ,previewImg
+			  ,publishFile
+			  ,resourceFile
+		  FROM lecture
+		 WHERE category = #{category}
+	</select>
+	
+	<insert id="insert" parameterType="Lecture">
+		INSERT INTO 
+			   lecture (id
+			   		   ,category
+			  		   ,lectureName
+			  		   ,description
+			  		   ,lectureVideoUrl
+			 		   ,instructor
+			 		   ,iconImg
+			 		   ,qrcodeImg
+			  		   ,previewImg
+			  		   ,publishFile
+			  		   ,resourceFile)
+				VALUES (#{id}
+					   ,#{category}
+			  		   ,#{lectureName}
+			  		   ,#{description}
+			  		   ,#{lectureVideoUrl}
+			 		   ,#{instructor}
+			 		   ,#{iconImg}
+			 		   ,#{qrcodeImg}
+			  		   ,#{previewImg}
+			  		   ,#{publishFile}
+			  		   ,#{resourceFile})
+	</insert>
+	
+	<update id="update" parameterType="Lecture">
+		UPDATE lecture
+		   SET category=#{category}
+			  ,lectureName=#{lectureName}
+			  ,description=#{description}
+			  ,lectureVideoUrl=#{lectureVideoUrl}
+			  ,instructor=#{instructor}
+			  ,iconImg=#{iconImg}
+			  ,qrcodeImg=#{qrcodeImg}
+			  ,previewImg=#{previewImg}
+			  ,publishFile=#{publishFile}
+			  ,resourceFile=#{resourceFile}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM lecture
+		WHERE id=#{id}
+	</delete>
+	
+	<select id="maxId" resultType="int">
+		SELECT max(id)
+		  FROM lecture
+	</select>
+
+</mapper>

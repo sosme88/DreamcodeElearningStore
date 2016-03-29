@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <typeAliases>
+  	<typeAlias type="dreamcode.eLearning.domain.User" alias="User"/>
+  	<typeAlias type="dreamcode.eLearning.domain.Lecture" alias="Lecture"/>
+  	<typeAlias type="dreamcode.eLearning.domain.LectureDetail" alias="LectureDetail"/>
+	<typeAlias type="dreamcode.eLearning.domain.Comment" alias="Comment"/>  
+  </typeAliases>
+	
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="org.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/skccdb"/>
+        <property name="username" value="skccuser"/>
+        <property name="password" value="skccuser"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+  	<mapper resource="mapper/UserMapper.xml"/>
+  	<mapper resource="mapper/LectureMapper.xml"/>
+  	<mapper resource="mapper/LectureDetailMapper.xml"/>
+  	<mapper resource="mapper/CommentMapper.xml"/>
+  </mappers>
+</configuration>
