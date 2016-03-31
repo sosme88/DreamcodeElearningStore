@@ -16,9 +16,9 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="org.mariadb.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/skccdb"/>
-        <property name="username" value="skccuser"/>
-        <property name="password" value="skccuser"/>
+        <property name="url" value="jdbc:mysql://1.233.10.64:3306/bjdb"/>
+        <property name="username" value="root"/>
+        <property name="password" value="qjawhd88~!"/>
       </dataSource>
     </environment>
   </environments>
